@@ -3,6 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <title>TP3 HTML5 - BTS SIO</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1, h2, h3 {
+            color: #2f3b4a;
+        }
+
+        hr {
+            margin: 30px 0;
+        }
+
+        /* ======== STYLE DU CV ======== */
+
+        .cv {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            display: flex;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .left {
+            width: 30%;
+            background-color: #2f3b4a;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .left img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid white;
+            margin-bottom: 15px;
+        }
+
+        .left h2 {
+            margin-top: 30px;
+            border-bottom: 1px solid #fff;
+            padding-bottom: 5px;
+            font-size: 18px;
+            text-align: left;
+        }
+
+        .left p, .left li {
+            font-size: 14px;
+            text-align: left;
+        }
+
+        .right {
+            width: 70%;
+            padding: 30px;
+        }
+
+        .right h1 {
+            margin: 0;
+            font-size: 32px;
+            color: #2f3b4a;
+        }
+
+        .right h3 {
+            margin-top: 5px;
+            color: #555;
+            font-weight: normal;
+        }
+
+        .section {
+            margin-top: 25px;
+        }
+
+        .section h2 {
+            color: #2f3b4a;
+            border-bottom: 2px solid #2f3b4a;
+            padding-bottom: 5px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+    </style>
 </head>
 <body>
 
@@ -136,38 +223,78 @@ Voici un extrait du site PostgreSQL :
 
 <h1>Curriculum Vitae</h1>
 
-<h2>Tarzout Yacine</h2>
-<p>Email : tarzoutyacine07@gmail.com</p>
-<p>Téléphone : 06 95 60 21 86</p>
+<div class="cv">
+    <!-- Colonne gauche -->
+    <div class="left">
+        <img src="photo.jpg" alt="Photo de Tarzout Yacine">
 
-<h2>Profil</h2>
-<p>
-Étudiant en BTS SIO, intéressé par la cybersécurité et les réseaux.
-</p>
+        <h2>Contact</h2>
+        <p>📍 Valence, France</p>
+        <p>📧 tarzoutyacine07@gmail.com</p>
+        <p>📞 06 95 60 21 86</p>
 
-<h2>Formation</h2>
-<ul>
-    <li><strong>BTS SIO</strong> – Lycée Algoud-Laffemas</li>
-    <li>Baccalauréat</li>
-</ul>
+        <h2>Compétences</h2>
+        <ul>
+            <li>Windows, Linux</li>
+            <li>Réseaux (IP, VPN, bases)</li>
+            <li>HTML / CSS</li>
+            <li>SQL, Python (bases)</li>
+            <li>Git, VirtualBox</li>
+        </ul>
 
-<h2>Compétences</h2>
-<ul>
-    <li>HTML / CSS</li>
-    <li>SQL</li>
-    <li>Programmation</li>
-</ul>
+        <h2>Langues</h2>
+        <ul>
+            <li>Français : langue maternelle</li>
+            <li>Anglais : niveau scolaire</li>
+            <li>Espagnol : niveau scolaire</li>
+        </ul>
 
-<h2>Expériences</h2>
-<p>Aucune expérience professionnelle à ce jour.</p>
+        <h2>Centres d’intérêt</h2>
+        <ul>
+            <li>Informatique</li>
+            <li>Montage PC</li>
+            <li>Nouvelles technologies</li>
+        </ul>
+    </div>
 
-<h2>Centres d’intérêt</h2>
-<ul>
-    <li>Informatique</li>
-    <li>Sport</li>
-    <li>Jeux vidéo</li>
-</ul>
+    <!-- Colonne droite -->
+    <div class="right">
+        <h1>Tarzout Yacine</h1>
+        <h3>Étudiant en BTS SIO – Informatique</h3>
+
+        <div class="section">
+            <h2>Profil</h2>
+            <p>
+                Étudiant en BTS Services Informatiques aux Organisations (SIO), intéressé par
+                les systèmes, réseaux et la gestion d’infrastructures informatiques.
+                Sérieux, motivé et curieux, je souhaite développer mes compétences et acquérir
+                une première expérience professionnelle.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Formation</h2>
+            <ul>
+                <li><strong>BTS SIO</strong> (en cours) – Lycée Algoud-Laffemas, Valence</li>
+                <li><strong>Baccalauréat</strong> – Lycée Sacré Cœur, Privas</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Projets scolaires</h2>
+            <ul>
+                <li>Déploiement et configuration d’un serveur Windows</li>
+                <li>Découverte des bases des systèmes et réseaux</li>
+                <li>Projets en groupe avec rédaction de documents et présentations</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Expériences</h2>
+            <p>Aucune expérience professionnelle pour le moment (en formation).</p>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
-
