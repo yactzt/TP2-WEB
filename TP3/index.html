@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>TP3 HTML5 - BTS SIO</title>
+</head>
+<body>
+
+<!-- ================= EXERCICE 1 ================= -->
+
+<h1>TP3 – Mémento HTML5 (Balises de texte)</h1>
+
+<h2>Balises de titres</h2>
+<p>Les balises <strong>&lt;h1&gt; à &lt;h6&gt;</strong> permettent de structurer le contenu.</p>
+
+<h1>Titre niveau 1</h1>
+<h2>Titre niveau 2</h2>
+<h3>Titre niveau 3</h3>
+
+<hr>
+
+<h2>Balise &lt;p&gt;</h2>
+<p>La balise paragraphe permet d’écrire un bloc de texte.</p>
+
+<hr>
+
+<h2>Balise &lt;strong&gt;</h2>
+<p>Permet de mettre un texte important : <strong>texte important</strong></p>
+
+<hr>
+
+<h2>Balise &lt;em&gt;</h2>
+<p>Permet de mettre un texte en emphase : <em>texte en italique</em></p>
+
+<hr>
+
+<h2>Balise &lt;mark&gt;</h2>
+<p>Permet de surligner un texte : <mark>texte surligné</mark></p>
+
+<hr>
+
+<h2>Listes</h2>
+
+<h3>Liste non ordonnée</h3>
+<ul>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>SQL</li>
+</ul>
+
+<h3>Liste ordonnée</h3>
+<ol>
+    <li>Analyse</li>
+    <li>Développement</li>
+    <li>Tests</li>
+</ol>
+
+<hr>
+
+<h2>Balise &lt;br&gt;</h2>
+<p>Ligne 1<br>Ligne 2</p>
+
+<hr>
+
+<!-- ================= EXERCICE 2 ================= -->
+
+<h1>Le langage SQL</h1>
+
+<h2>1.1. Définition</h2>
+
+<p>
+Le langage SQL (<strong>Structured Query Language</strong> ou Langage de requêtes structuré)
+est un langage comprenant l’ensemble des ordres nécessaires à la création
+et à la gestion d’une base de données relationnelle.
+</p>
+
+<p>
+Il a été créé en 1986 et est l’aboutissement de plusieurs langages
+créés depuis l’apparition du modèle relationnel en 1970
+(inventé par <strong>Mr Codd</strong>, mathématicien chez IBM).
+</p>
+
+<p>
+L'utilisation du langage SQL suppose que les données soient définies
+selon le modèle relationnel au sein d'un SGBDR
+(Oracle, SQL Server, MySQL, PostgreSQL…).
+</p>
+
+<h2>1.2. Les différentes normes utilisées</h2>
+
+<p>Il existe plusieurs normes SQL :</p>
+
+<ul>
+    <li>SQL 89</li>
+    <li>SQL 92</li>
+    <li>SQL 2011</li>
+</ul>
+
+<p>
+Malgré les normes, il peut exister des différences entre les SGBDR.
+Voici un extrait du site PostgreSQL :
+</p>
+
+<blockquote>
+    <p>
+    "Le développement de PostgreSQL respecte le standard en vigueur,
+    tant que celui-ci ne s'oppose pas aux fonctionnalités traditionnelles
+    ou au bon sens…"
+    </p>
+
+    <p>
+    "SQL-92 définit trois niveaux de conformité :
+    ENTRY, INTERMEDIATE et FULL."
+    </p>
+</blockquote>
+
+<h1>2. Le modèle de données utilisé dans le cours</h1>
+
+<h2>2.1. Le modèle entité-association (MCD)</h2>
+
+<h2>2.2. Le modèle relationnel (MRD)</h2>
+
+<h2>2.3. La description textuelle des tables utilisées</h2>
+
+<h3>fonction_personnel</h3>
+<p>(code_fonction, libelle_fonction)</p>
+<p><strong>Clé primaire :</strong> code_fonction</p>
+
+<h3>service</h3>
+<p>(num_service, libelle_service, capacite_accueil, date_ouverture)</p>
+<p><strong>Clé primaire :</strong> num_service</p>
+
+<hr>
+
+<!-- ================= EXERCICE 3 ================= -->
+
+<h1>Curriculum Vitae</h1>
+
+<h2>Nom Prénom</h2>
+<p>Email : nom.prenom@email.com</p>
+<p>Téléphone : 06 00 00 00 00</p>
+
+<h2>Profil</h2>
+<p>
+Étudiant en BTS SIO, intéressé par le développement web
+et les bases de données.
+</p>
+
+<h2>Formation</h2>
+<ul>
+    <li><strong>BTS SIO</strong> – Lycée Algoud-Laffemas</li>
+    <li>Baccalauréat</li>
+</ul>
+
+<h2>Compétences</h2>
+<ul>
+    <li>HTML / CSS</li>
+    <li>SQL</li>
+    <li>Programmation</li>
+</ul>
+
+<h2>Expériences</h2>
+<p>Aucune expérience professionnelle à ce jour.</p>
+
+<h2>Centres d’intérêt</h2>
+<ul>
+    <li>Informatique</li>
+    <li>Sport</li>
+    <li>Jeux vidéo</li>
+</ul>
+
+</body>
+</html>
