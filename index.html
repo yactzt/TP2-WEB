@@ -53,7 +53,7 @@
       touch-action: manipulation;
     }
 
-    /* Curseur custom – désactivé sur mobile + fallback visuel */
+    /* Curseur custom – désactivé sur mobile */
     .custom-cursor {
       position: fixed;
       width: 28px;
@@ -76,12 +76,8 @@
       opacity: 0.45;
     }
 
-    @media (pointer: fine) {
-      body { cursor: none; }
-    }
-    @media (pointer: coarse) {
-      .custom-cursor { display: none; }
-    }
+    @media (pointer: fine) { body { cursor: none; } }
+    @media (pointer: coarse) { .custom-cursor { display: none; } }
 
     #vanta-bg {
       position: fixed;
@@ -133,6 +129,45 @@
       font-weight: 300;
       margin-top: 1.8rem;
       opacity: 0.82;
+    }
+
+    /* Flèche abyssale qui force le scroll */
+    .scroll-arrow {
+      position: absolute;
+      bottom: 8vh;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 4.5rem;
+      color: var(--accent-glow);
+      opacity: 0.7;
+      animation: pulse-arrow 3.2s infinite ease-in-out, float 6s infinite ease-in-out;
+      text-shadow: 0 0 40px rgba(167,139,250,0.9), 0 0 80px rgba(124,58,237,0.6);
+      pointer-events: none;
+      z-index: 5;
+      will-change: transform, opacity;
+    }
+
+    .scroll-arrow svg {
+      width: 1.2em;
+      height: 1.2em;
+      filter: drop-shadow(0 0 20px rgba(124,58,237,0.8));
+    }
+
+    @keyframes pulse-arrow {
+      0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(1); }
+      50% { opacity: 1; transform: translateX(-50%) scale(1.25); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(-20px); }
+    }
+
+    /* Cache la flèche quand on a scrollé vers les boutons */
+    .scrolled .scroll-arrow {
+      opacity: 0;
+      transform: translateX(-50%) translateY(40px);
+      transition: all 0.8s ease-out;
     }
 
     .portal-grid {
@@ -225,11 +260,12 @@
       user-select: none;
     }
 
-    /* Mobile-first adjustments */
+    /* Mobile adjustments */
     @media (max-width: 640px) {
       .hero { padding: 1.5rem 1rem; min-height: 90dvh; }
       .glitch { font-size: clamp(3.2rem, 16vw, 6.5rem); line-height: 0.9; }
       .subtitle { margin-top: 1.2rem; letter-spacing: 0.3em; }
+      .scroll-arrow { font-size: 3.8rem; bottom: 6vh; }
       .portal-grid { gap: 1.8rem; padding: 3rem 6% 10rem; }
       .portal { aspect-ratio: 1.35 / 1; }
       .portal-label { font-size: clamp(2.4rem, 10vw, 3.2rem); }
@@ -238,6 +274,7 @@
     @media (max-width: 480px) {
       .portal-grid { grid-template-columns: 1fr; }
       .portal { aspect-ratio: 1.5 / 1; }
+      .scroll-arrow { font-size: 3.2rem; }
     }
 
     @media (min-width: 1024px) {
@@ -257,6 +294,13 @@
       <h1 class="glitch" data-text="YACINE TARZOUT">YACINE TARZOUT</h1>
       <div class="subtitle">BTS SIO • SISR • 2026 • VALENCE</div>
     </div>
+
+    <!-- La flèche qui transperce l’âme -->
+    <div class="scroll-arrow">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+      </svg>
+    </div>
   </section>
 
   <section class="portal-grid">
@@ -270,7 +314,7 @@
   <footer>BTS SIO SISR — VALENCE 2026</footer>
 
   <script>
-    // Vanta – performance mobile améliorée
+    // Vanta optimisé mobile
     VANTA.NET({
       el: "#vanta-bg",
       mouseControls: true,
@@ -279,15 +323,15 @@
       minHeight: 200,
       minWidth: 200,
       scale: 1.00,
-      scaleMobile: 0.85,          // réduit la charge sur mobile
+      scaleMobile: 0.85,
       color: 0x7c3aed,
       backgroundColor: 0x050507,
-      points: 9,                  // moins de points = plus fluide
+      points: 9,
       maxDistance: 20,
       spacing: 15
     });
 
-    // Curseur uniquement sur desktop
+    // Curseur desktop only
     if (window.matchMedia("(pointer: fine)").matches) {
       const cursor = document.querySelector('.custom-cursor');
       document.addEventListener('mousemove', e => {
@@ -301,7 +345,16 @@
       });
     }
 
-    // Amélioration scroll mobile
+    // Masquer la flèche après scroll (quand les portails sont visibles)
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > window.innerHeight * 0.4) {
+        document.body.classList.add('scrolled');
+      } else {
+        document.body.classList.remove('scrolled');
+      }
+    });
+
+    // Smooth scroll si jamais
     document.documentElement.style.scrollBehavior = 'smooth';
   </script>
 </body>
