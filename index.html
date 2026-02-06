@@ -1,20 +1,32 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <!-- =====================================================
+       META
+  ====================================================== -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yacine Tarzout – BTS SIO SISR</title>
 
+  <!-- =====================================================
+       STYLES
+  ====================================================== -->
   <style>
+    /* =====================
+       THEME (GROK)
+    ====================== */
     :root {
-      --bg: #050608;
-      --panel: #0b0d11;
+      --bg-main: #050608;
+      --bg-panel: #0b0d11;
       --border: #1a1d23;
-      --text: #f3f4f6;
-      --muted: #9aa0aa;
+      --text-main: #f3f4f6;
+      --text-muted: #9aa0aa;
       --accent: #ffffff;
     }
 
+    /* =====================
+       RESET / BASE
+    ====================== */
     * {
       box-sizing: border-box;
     }
@@ -23,59 +35,81 @@
       margin: 0;
       min-height: 100vh;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #0a0c12, var(--bg));
-      color: var(--text);
+      background: radial-gradient(circle at top, #0a0c12, var(--bg-main));
+      color: var(--text-main);
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      padding: 2rem;
       overflow: hidden;
     }
 
-    /* ===== PARTICLES ===== */
+    /* =====================
+       BACKGROUND
+    ====================== */
     #particles {
       position: fixed;
       inset: 0;
       z-index: -1;
     }
 
-    /* ===== CONTENT ===== */
+    /* =====================
+       PAGE CONTAINER
+    ====================== */
+    .page {
+      width: 100%;
+      max-width: 1100px;
+      padding: 4rem 2rem 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* =====================
+       HEADER
+    ====================== */
+    header {
+      margin-bottom: 4rem;
+    }
+
     h1 {
-      font-size: clamp(2.6rem, 5vw, 3.8rem);
+      font-size: clamp(2.8rem, 5vw, 4rem);
       font-weight: 700;
       letter-spacing: -0.04em;
       margin: 0;
     }
 
     .subtitle {
-      margin-top: 1rem;
+      margin-top: 1.2rem;
       font-size: 1.15rem;
-      color: var(--muted);
-      max-width: 720px;
+      color: var(--text-muted);
       line-height: 1.6;
     }
 
-    .buttons {
-      margin-top: 4rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.2rem;
+    /* =====================
+       MAIN / BUTTONS
+    ====================== */
+    main {
       width: 100%;
       max-width: 900px;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.4rem;
     }
 
     .btn {
       background: linear-gradient(180deg, #0d1016, #080a0f);
       border: 1px solid var(--border);
       border-radius: 14px;
-      padding: 1.4rem 2rem;
+      padding: 1.5rem 2rem;
       font-size: 1.05rem;
       font-weight: 500;
-      color: var(--text);
+      color: var(--text-main);
       text-decoration: none;
-      transition: 
+      transition:
         transform 0.25s ease,
         border-color 0.25s ease,
         box-shadow 0.25s ease;
@@ -83,16 +117,19 @@
 
     .btn:hover {
       transform: translateY(-3px);
-      border-color: #ffffff;
-      box-shadow: 0 8px 25px rgba(255, 255, 255, 0.08);
+      border-color: var(--accent);
+      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.08);
     }
 
+    /* =====================
+       FOOTER
+    ====================== */
     footer {
       margin-top: 4.5rem;
-      font-size: 0.8rem;
-      color: var(--muted);
-      opacity: 0.7;
-      letter-spacing: 0.05em;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      opacity: 0.6;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
     }
   </style>
@@ -103,27 +140,40 @@
   <!-- BACKGROUND -->
   <canvas id="particles"></canvas>
 
-  <!-- CONTENT -->
-  <h1>Yacine Tarzout</h1>
-  <p class="subtitle">
-    BTS Services Informatiques aux Organisations<br>
-    Option SISR
-  </p>
+  <!-- PAGE -->
+  <div class="page">
 
-  <div class="buttons">
-    <a href="TP1/index.html" class="btn">TP 1</a>
-    <a href="TP2/index.html" class="btn">TP 2</a>
-    <a href="TP3/index.html" class="btn">TP 3</a>
-    <a href="TP4/index.html" class="btn">TP 4</a>
-    <a href="TP5/index.html" class="btn">TP 5</a>
-    <a href="CV/index.html" class="btn">CV</a>
+    <!-- HEADER -->
+    <header>
+      <h1>Yacine Tarzout</h1>
+      <p class="subtitle">
+        BTS Services Informatiques aux Organisations<br>
+        Option SISR
+      </p>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+      <section class="buttons">
+        <a href="TP1/index.html" class="btn">TP 1</a>
+        <a href="TP2/index.html" class="btn">TP 2</a>
+        <a href="TP3/index.html" class="btn">TP 3</a>
+        <a href="TP4/index.html" class="btn">TP 4</a>
+        <a href="TP5/index.html" class="btn">TP 5</a>
+        <a href="CV/index.html" class="btn">CV</a>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      BTS SIO 2026 – Valence
+    </footer>
+
   </div>
 
-  <footer>
-    BTS SIO 2026 – Valence
-  </footer>
-
-  <!-- PARTICLES SCRIPT -->
+  <!-- =====================================================
+       PARTICLES SCRIPT
+  ====================================================== -->
   <script>
     const canvas = document.getElementById("particles");
     const ctx = canvas.getContext("2d");
@@ -131,13 +181,13 @@
     let stars = [];
     const STAR_COUNT = 160;
 
-    function resize() {
+    function resizeCanvas() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     }
 
-    window.addEventListener("resize", resize);
-    resize();
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
 
     class Star {
       constructor() {
@@ -147,7 +197,7 @@
       reset() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 1.2 + 0.3;
+        this.radius = Math.random() * 1.2 + 0.3;
         this.speed = Math.random() * 0.25 + 0.05;
         this.alpha = Math.random() * 0.5 + 0.1;
       }
@@ -161,14 +211,14 @@
       }
 
       draw() {
-        ctx.fillStyle = `rgba(255,255,255,${this.alpha})`;
+        ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
         ctx.fill();
       }
     }
 
-    function init() {
+    function initStars() {
       stars = [];
       for (let i = 0; i < STAR_COUNT; i++) {
         stars.push(new Star());
@@ -184,7 +234,7 @@
       requestAnimationFrame(animate);
     }
 
-    init();
+    initStars();
     animate();
   </script>
 
