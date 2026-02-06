@@ -1,79 +1,280 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yacine Tarzout - BTS SIO SISR</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Yacine Tarzout • BTS SIO SISR 2026</title>
+  
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🩸</text></svg>">
+  <meta name="theme-color" content="#0a0a0f"/>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=JetBrains+Mono:wght@300;400;500;700;800&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+
   <style>
+    :root {
+      --bg: #050507;
+      --bg-card: rgba(12, 12, 18, 0.72);
+      --accent: #7c3aed;
+      --accent-glow: #b388ff;
+      --text: #f1f5f9;
+      --text-dim: #94a3b8;
+      --border: rgba(124, 58, 237, 0.22);
+    }
+
+    html { scroll-behavior: smooth; }
     body {
-      font-family: system-ui, -apple-system, sans-serif;
-      background: #f9fafb;
-      color: #111827;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Roboto Mono', 'JetBrains Mono', monospace;
+      overflow-x: hidden;
+      cursor: none;
       margin: 0;
       padding: 0;
+    }
+
+    .custom-cursor {
+      position: fixed;
+      width: 32px;
+      height: 32px;
+      border: 1.5px solid var(--accent-glow);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: all 0.10s ease-out;
+      z-index: 99999;
+      mix-blend-mode: difference;
+      will-change: transform;
+    }
+    .custom-cursor::after {
+      content: '';
+      position: absolute;
+      inset: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      opacity: 0.55;
+      transition: all 0.25s;
+    }
+    a:hover ~ .custom-cursor,
+    .hover\\:cursor\\:grow .custom-cursor {
+      transform: translate(-50%, -50%) scale(4.2);
+      border-color: #ffffff;
+      background: rgba(255,255,255,0.12);
+    }
+
+    #vanta-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      opacity: 0.38;
+    }
+
+    .hero {
+      min-height: 100vh;
+      height: 100vh;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
       text-align: center;
+      position: relative;
+      padding: 4rem 2rem;
     }
-    h1 {
-      font-size: 3.5rem;
-      margin: 0.5rem 0;
-      font-weight: 800;
-      color: #1e40af;
+
+    .glitch {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(9rem, 14vw, 18rem);
+      font-weight: 900;
+      letter-spacing: -0.09em;
+      line-height: 0.88;
+      color: transparent;
+      background: linear-gradient(90deg, #7c3aed, #c084fc, #e0bbff, #a78bfa, #7c3aed);
+      background-size: 600% 600%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: glitch 5.5s infinite alternate, hue-rotate 18s infinite linear;
+      text-shadow: 0 0 80px rgba(124,58,237,0.6);
     }
+
+    @keyframes glitch {
+      0%, 100% { transform: translate(0); text-shadow: 0.08em 0 0 #f0f, -0.08em 0 0 #0ff; }
+      10% { transform: translate(-4px, 4px); }
+      20% { transform: translate(5px, -5px); }
+      30% { transform: translate(-3px, 3px); }
+      60% { text-shadow: -0.06em -0.04em 0 #f0f, 0.04em 0.04em 0 #0ff; }
+    }
+    @keyframes hue-rotate {
+      0% { filter: hue-rotate(0deg); }
+      100% { filter: hue-rotate(360deg); }
+    }
+
     .subtitle {
-      font-size: 1.5rem;
-      color: #4b5563;
-      margin: 0 0 3rem 0;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      color: var(--text-dim);
+      letter-spacing: 0.6em;
+      text-transform: uppercase;
+      font-weight: 300;
+      margin-top: 3rem;
+      opacity: 0.85;
+      font-family: 'JetBrains Mono';
     }
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      justify-content: center;
-      max-width: 800px;
+
+    .portal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+      gap: 3.5rem;
+      padding: 8rem 8% 12rem;
+      max-width: 2400px;
+      margin: 0 auto;
     }
-    .btn {
-      background: #2563eb;
-      color: white;
-      padding: 1.2rem 2.5rem;
-      border-radius: 8px;
-      font-size: 1.3rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: background 0.2s;
-      min-width: 220px;
-      box-shadow: 0 4px 12px rgba(37,99,235,0.2);
+
+    .portal {
+      position: relative;
+      height: 360px;
+      border: 1.5px solid var(--border);
+      border-radius: 1.8rem;
+      overflow: hidden;
+      backdrop-filter: blur(22px);
+      background: var(--bg-card);
+      transition: all 0.7s cubic-bezier(0.215, 0.61, 0.355, 1);
+      box-shadow: 0 40px 100px -30px rgba(0,0,0,0.95), inset 0 0 60px rgba(124,58,237,0.08);
     }
-    .btn:hover {
-      background: #1d4ed8;
+
+    .portal::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 40% 30%, rgba(124,58,237,0.28), transparent 70%);
+      opacity: 0;
+      transition: opacity 1s ease;
     }
+
+    .portal:hover::before { opacity: 1; }
+
+    .portal:hover {
+      transform: translateY(-40px) rotateX(10deg) rotateY(8deg) scale(1.08);
+      box-shadow: 0 100px 200px -60px rgba(124,58,237,0.55), 0 0 140px rgba(124,58,237,0.45);
+      border-color: #c4b5fd;
+    }
+
+    .portal a {
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+      display: grid;
+      place-items: center;
+    }
+
+    .portal-label {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 5.2rem;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      color: #ede9fe;
+      text-shadow: 0 0 60px rgba(167,139,250,0.9), 0 0 120px rgba(124,58,237,0.6);
+      transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.575);
+    }
+
+    .portal:hover .portal-label {
+      transform: scale(1.28) translateY(-20px);
+      text-shadow: 0 0 120px rgba(167,139,250,1), 0 0 220px rgba(124,58,237,0.9);
+    }
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="140" height="140"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="5" /><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.10 0"/></filter><rect width="100%" height="100%" filter="url(%23n)"/></svg>');
+      opacity: 0.06;
+      mix-blend-mode: overlay;
+      z-index: -1;
+    }
+
     footer {
-      margin-top: 4rem;
-      color: #6b7280;
-      font-size: 0.95rem;
+      position: fixed;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.1rem;
+      color: #475569;
+      letter-spacing: 0.5em;
+      font-family: 'JetBrains Mono';
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    @media (min-width: 1800px) {
+      .glitch { font-size: 22rem; }
+      .subtitle { font-size: 4.2rem; letter-spacing: 0.8em; }
+      .portal-grid { grid-template-columns: repeat(5, 1fr); gap: 4rem; padding: 10rem 12%; }
+      .portal { height: 420px; }
+      .portal-label { font-size: 6.8rem; }
+    }
+
+    @media (max-width: 1024px) {
+      .portal-grid { grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 2.8rem; padding: 6rem 6%; }
+      .portal { height: 320px; }
+      .portal-label { font-size: 4.2rem; }
     }
   </style>
 </head>
 <body>
 
-  <h1>Yacine Tarzout</h1>
-  <p class="subtitle">BTS Services Informatiques aux Organisations – Option SISR</p>
+  <div id="vanta-bg"></div>
+  <div class="noise"></div>
+  <div class="custom-cursor"></div>
 
-  <div class="buttons">
-    <a href="TP1/index.html" class="btn">TP 1</a>
-    <a href="TP2/index.html" class="btn">TP 2</a>
-    <a href="TP3/index.html" class="btn">TP 3</a>
-    <a href="TP4/index.html" class="btn">TP 4</a>
-    <a href="CV/index.html" class="btn">CV</a>
-  </div>
+  <section class="hero">
+    <div>
+      <h1 class="glitch" data-text="YACINE TARZOUT">YACINE TARZOUT</h1>
+      <div class="subtitle">BTS SIO • SISR • 2026 • VALENCE</div>
+    </div>
+  </section>
 
-  <footer>
-    BTS SIO 2026 – Valence
-  </footer>
+  <section class="portal-grid">
+    <div class="portal"><a href="TP1/index.html"><span class="portal-label">TP 1</span></a></div>
+    <div class="portal"><a href="TP2/index.html"><span class="portal-label">TP 2</span></a></div>
+    <div class="portal"><a href="TP3/index.html"><span class="portal-label">TP 3</span></a></div>
+    <div class="portal"><a href="TP4/index.html"><span class="portal-label">TP 4</span></a></div>
+    <div class="portal"><a href="CV/index.html"><span class="portal-label">CURRICULUM</span></a></div>
+  </section>
 
+  <footer>BTS SIO SISR — VALENCE 2026</footer>
+
+  <script>
+    VANTA.NET({
+      el: "#vanta-bg",
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.05,
+      scaleMobile: 0.9,
+      color: 0x8b5cf6,
+      backgroundColor: 0x050507,
+      points: 14,
+      maxDistance: 26,
+      spacing: 16
+    });
+
+    const cursor = document.querySelector('.custom-cursor');
+    let cursorX = 0, cursorY = 0;
+    document.addEventListener('mousemove', e => {
+      cursorX = e.clientX;
+      cursorY = e.clientY;
+      cursor.style.left = cursorX + 'px';
+      cursor.style.top = cursorY + 'px';
+    });
+
+    document.querySelectorAll('a').forEach(el => {
+      el.addEventListener('mouseenter', () => document.body.classList.add('hover\\:cursor\\:grow'));
+      el.addEventListener('mouseleave', () => document.body.classList.remove('hover\\:cursor\\:grow'));
+    });
+  </script>
 </body>
 </html>
