@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yacine Tarzout - BTS SIO SISR</title>
+  <title>Yacine Tarzout – BTS SIO SISR</title>
 
   <style>
     :root {
@@ -31,8 +31,17 @@
       justify-content: center;
       text-align: center;
       padding: 2rem;
+      overflow: hidden;
     }
 
+    /* ===== PARTICLES BACKGROUND ===== */
+    #particles {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+    }
+
+    /* ===== CONTENT ===== */
     h1 {
       font-size: clamp(2.5rem, 5vw, 3.5rem);
       font-weight: 800;
@@ -44,6 +53,7 @@
       margin-top: 0.8rem;
       font-size: 1.25rem;
       color: var(--muted);
+      max-width: 700px;
     }
 
     .buttons {
@@ -56,34 +66,47 @@
     }
 
     .btn {
-      background: var(--card);
+      background: linear-gradient(180deg, #121726, #0f1424);
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.2rem 1.8rem;
-      font-size: 1.15rem;
+      border-radius: 12px;
+      padding: 1.3rem 1.8rem;
+      font-size: 1.1rem;
       font-weight: 600;
       color: var(--text);
       text-decoration: none;
-      transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+      backdrop-filter: blur(4px);
+      transition: 
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
     }
 
     .btn:hover {
-      background: #161c2f;
+      transform: translateY(-4px);
       border-color: var(--accent);
-      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.15);
     }
 
     footer {
-      margin-top: 3.5rem;
-      font-size: 0.9rem;
+      margin-top: 4rem;
+      font-size: 0.85rem;
       color: #6b7280;
+      opacity: 0.8;
     }
   </style>
 </head>
 
 <body>
+
+  <!-- PARTICLES CANVAS -->
+  <canvas id="particles"></canvas>
+
+  <!-- CONTENT -->
   <h1>Yacine Tarzout</h1>
-  <p class="subtitle">BTS Services Informatiques aux Organisations – Option SISR</p>
+  <p class="subtitle">
+    BTS Services Informatiques aux Organisations<br>
+    Option SISR
+  </p>
 
   <div class="buttons">
     <a href="TP1/index.html" class="btn">TP 1</a>
@@ -97,5 +120,71 @@
   <footer>
     BTS SIO 2026 – Valence
   </footer>
+
+  <!-- PARTICLES SCRIPT -->
+  <script>
+    const canvas = document.getElementById("particles");
+    const ctx = canvas.getContext("2d");
+
+    let particles = [];
+    const PARTICLE_COUNT = 140;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    class Particle {
+      constructor() {
+        this.reset();
+      }
+
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.radius = Math.random() * 1.6 + 0.4;
+        this.speed = Math.random() * 0.5 + 0.15;
+        this.alpha = Math.random() * 0.6 + 0.2;
+      }
+
+      update() {
+        this.y += this.speed;
+        if (this.y > canvas.height) {
+          this.y = 0;
+          this.x = Math.random() * canvas.width;
+        }
+      }
+
+      draw() {
+        ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function initParticles() {
+      particles = [];
+      for (let i = 0; i < PARTICLE_COUNT; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animate);
+    }
+
+    initParticles();
+    animate();
+  </script>
+
 </body>
 </html>
