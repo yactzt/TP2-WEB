@@ -7,12 +7,12 @@
 
   <style>
     :root {
-      --bg: #0b0f1a;
-      --card: #121726;
-      --border: #1f2937;
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --accent: #2563eb;
+      --bg: #050608;
+      --panel: #0b0d11;
+      --border: #1a1d23;
+      --text: #f3f4f6;
+      --muted: #9aa0aa;
+      --accent: #ffffff;
     }
 
     * {
@@ -22,8 +22,8 @@
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0a0c12, var(--bg));
       color: var(--text);
       display: flex;
       flex-direction: column;
@@ -34,7 +34,7 @@
       overflow: hidden;
     }
 
-    /* ===== PARTICLES BACKGROUND ===== */
+    /* ===== PARTICLES ===== */
     #particles {
       position: fixed;
       inset: 0;
@@ -43,38 +43,38 @@
 
     /* ===== CONTENT ===== */
     h1 {
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
-      font-weight: 800;
+      font-size: clamp(2.6rem, 5vw, 3.8rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
       margin: 0;
-      letter-spacing: -0.03em;
     }
 
     .subtitle {
-      margin-top: 0.8rem;
-      font-size: 1.25rem;
+      margin-top: 1rem;
+      font-size: 1.15rem;
       color: var(--muted);
-      max-width: 700px;
+      max-width: 720px;
+      line-height: 1.6;
     }
 
     .buttons {
-      margin-top: 3.5rem;
+      margin-top: 4rem;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 1.2rem;
       width: 100%;
-      max-width: 850px;
+      max-width: 900px;
     }
 
     .btn {
-      background: linear-gradient(180deg, #121726, #0f1424);
+      background: linear-gradient(180deg, #0d1016, #080a0f);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.3rem 1.8rem;
-      font-size: 1.1rem;
-      font-weight: 600;
+      border-radius: 14px;
+      padding: 1.4rem 2rem;
+      font-size: 1.05rem;
+      font-weight: 500;
       color: var(--text);
       text-decoration: none;
-      backdrop-filter: blur(4px);
       transition: 
         transform 0.25s ease,
         border-color 0.25s ease,
@@ -82,23 +82,25 @@
     }
 
     .btn:hover {
-      transform: translateY(-4px);
-      border-color: var(--accent);
-      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.15);
+      transform: translateY(-3px);
+      border-color: #ffffff;
+      box-shadow: 0 8px 25px rgba(255, 255, 255, 0.08);
     }
 
     footer {
-      margin-top: 4rem;
-      font-size: 0.85rem;
-      color: #6b7280;
-      opacity: 0.8;
+      margin-top: 4.5rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      opacity: 0.7;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- PARTICLES CANVAS -->
+  <!-- BACKGROUND -->
   <canvas id="particles"></canvas>
 
   <!-- CONTENT -->
@@ -126,18 +128,18 @@
     const canvas = document.getElementById("particles");
     const ctx = canvas.getContext("2d");
 
-    let particles = [];
-    const PARTICLE_COUNT = 140;
+    let stars = [];
+    const STAR_COUNT = 160;
 
-    function resizeCanvas() {
+    function resize() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     }
 
-    window.addEventListener("resize", resizeCanvas);
-    resizeCanvas();
+    window.addEventListener("resize", resize);
+    resize();
 
-    class Particle {
+    class Star {
       constructor() {
         this.reset();
       }
@@ -145,9 +147,9 @@
       reset() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.radius = Math.random() * 1.6 + 0.4;
-        this.speed = Math.random() * 0.5 + 0.15;
-        this.alpha = Math.random() * 0.6 + 0.2;
+        this.size = Math.random() * 1.2 + 0.3;
+        this.speed = Math.random() * 0.25 + 0.05;
+        this.alpha = Math.random() * 0.5 + 0.1;
       }
 
       update() {
@@ -159,30 +161,30 @@
       }
 
       draw() {
-        ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
+        ctx.fillStyle = `rgba(255,255,255,${this.alpha})`;
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
       }
     }
 
-    function initParticles() {
-      particles = [];
-      for (let i = 0; i < PARTICLE_COUNT; i++) {
-        particles.push(new Particle());
+    function init() {
+      stars = [];
+      for (let i = 0; i < STAR_COUNT; i++) {
+        stars.push(new Star());
       }
     }
 
     function animate() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(p => {
-        p.update();
-        p.draw();
+      stars.forEach(star => {
+        star.update();
+        star.draw();
       });
       requestAnimationFrame(animate);
     }
 
-    initParticles();
+    init();
     animate();
   </script>
 
