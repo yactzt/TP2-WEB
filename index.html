@@ -1,264 +1,141 @@
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth">
+<html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
-  <meta name="format-detection" content="telephone=no"/>
-
-  <title>Yacine Tarzout • BTS SIO SISR 2026</title>
-
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🩸</text></svg>">
-  <meta name="theme-color" content="#050507"/>
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=JetBrains+Mono:wght@300;400;500;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-
-  <!-- Libs -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yacine Tarzout - BTS SIO SISR</title>
 
   <style>
     :root {
-      --bg: #050507;
-      --bg-card: rgba(15,15,20,0.72);
-      --accent: #7c3aed;
-      --accent-glow: #a78bfa;
-      --text: #e5e7eb;
-      --text-dim: #94a3b8;
-      --border: rgba(124,58,237,0.22);
+      --bg-main: #05070f;
+      --bg-glass: rgba(255, 255, 255, 0.06);
+      --border-glass: rgba(255, 255, 255, 0.15);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --accent: #3b82f6;
+      --accent-soft: rgba(59, 130, 246, 0.4);
     }
 
     * {
-      margin: 0;
-      padding: 0;
       box-sizing: border-box;
     }
 
-    html, body {
-      width: 100%;
-      height: 100%;
-      overflow-x: hidden;
-    }
-
     body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Roboto Mono', monospace;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* === CURSOR (DESKTOP ONLY) === */
-    @media (pointer: fine) {
-      body { cursor: none; }
-
-      .custom-cursor {
-        position: fixed;
-        width: 28px;
-        height: 28px;
-        border: 1px solid var(--accent);
-        border-radius: 50%;
-        pointer-events: none;
-        transform: translate(-50%, -50%);
-        z-index: 9999;
-        mix-blend-mode: difference;
-      }
-
-      .custom-cursor::after {
-        content: '';
-        position: absolute;
-        inset: 6px;
-        background: var(--accent);
-        border-radius: 50%;
-        opacity: 0.5;
-      }
-    }
-
-    /* === BACKGROUND === */
-    #vanta-bg {
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      opacity: 0.35;
-    }
-
-    .noise {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: 0.06;
-      z-index: -1;
-      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="5"/><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.09 0"/></filter><rect width="100%" height="100%" filter="url(%23n)"/></svg>');
-    }
-
-    /* === HERO === */
-    .hero {
+      margin: 0;
       min-height: 100vh;
-      display: grid;
-      place-items: center;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background:
+        radial-gradient(800px circle at 50% 20%, rgba(59,130,246,0.15), transparent 40%),
+        radial-gradient(600px circle at 80% 80%, rgba(37,99,235,0.12), transparent 40%),
+        var(--bg-main);
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      position: relative;
-      padding: 2rem 1rem;
+      padding: 2rem;
     }
 
-    .glitch {
-      font-family: 'Orbitron', sans-serif;
-      font-size: clamp(3.8rem, 18vw, 13rem);
+    h1 {
+      font-size: clamp(2.8rem, 6vw, 4.2rem);
       font-weight: 900;
-      line-height: 0.9;
-      background: linear-gradient(90deg, #7c3aed, #c084fc, #ddd6fe);
-      background-clip: text;
+      letter-spacing: -0.04em;
+      margin: 0;
+      background: linear-gradient(180deg, #ffffff, #93c5fd);
       -webkit-background-clip: text;
-      color: transparent;
-      animation: hue 14s linear infinite;
-    }
-
-    @keyframes hue {
-      to { filter: hue-rotate(360deg); }
+      -webkit-text-fill-color: transparent;
     }
 
     .subtitle {
-      margin-top: 1.5rem;
-      font-size: clamp(1rem, 4vw, 1.4rem);
-      letter-spacing: 0.35em;
-      color: var(--text-dim);
+      margin-top: 1rem;
+      font-size: 1.3rem;
+      color: var(--text-muted);
+      max-width: 800px;
     }
 
-    /* === SCROLL ARROW === */
-    .scroll-arrow {
-      position: absolute;
-      bottom: 2.2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 54px;
-      height: 54px;
-      border-radius: 50%;
-      border: 1px solid var(--border);
+    .buttons {
+      margin-top: 4rem;
       display: grid;
-      place-items: center;
-      backdrop-filter: blur(12px);
-      background: rgba(15,15,25,0.55);
-      box-shadow: 0 0 35px rgba(124,58,237,0.35);
-      animation: pulse 2.2s infinite;
-      transition: opacity 0.4s ease;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.6rem;
+      width: 100%;
+      max-width: 900px;
     }
 
-    .scroll-arrow span {
-      width: 14px;
-      height: 14px;
-      border-right: 3px solid var(--accent);
-      border-bottom: 3px solid var(--accent);
-      transform: rotate(45deg);
-    }
-
-    @keyframes pulse {
-      0%,100% { transform: translateX(-50%) scale(1); }
-      50% { transform: translateX(-50%) scale(1.15); }
-    }
-
-    /* === PORTALS === */
-    .portal-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-      gap: 2.5rem;
-      padding: 5rem 8% 8rem;
-      max-width: 1600px;
-      margin: auto;
-    }
-
-    .portal {
-      aspect-ratio: 1.4 / 1;
-      border-radius: 1.1rem;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      display: grid;
-      place-items: center;
-      transition: transform 0.5s cubic-bezier(0.23,1,0.32,1),
-                  box-shadow 0.5s,
-                  border-color 0.5s;
-    }
-
-    @media (pointer: fine) {
-      .portal:hover {
-        transform: translateY(-18px) scale(1.05);
-        box-shadow: 0 40px 120px rgba(124,58,237,0.45);
-        border-color: var(--accent-glow);
-      }
-    }
-
-    .portal a {
-      font-family: 'Orbitron';
-      font-size: clamp(2.5rem, 8vw, 3.4rem);
-      color: #e0d7ff;
+    .btn {
+      position: relative;
+      padding: 1.4rem 2rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-main);
       text-decoration: none;
-      text-shadow: 0 0 40px rgba(167,139,250,0.8);
+      border-radius: 14px;
+      background: var(--bg-glass);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--border-glass);
+      box-shadow:
+        0 0 0 rgba(0,0,0,0),
+        inset 0 0 0 rgba(255,255,255,0);
+      transition: all 0.35s ease;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        120deg,
+        transparent,
+        var(--accent-soft),
+        transparent
+      );
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent);
+      box-shadow:
+        0 20px 40px rgba(0,0,0,0.5),
+        0 0 30px var(--accent-soft);
+    }
+
+    .btn:hover::before {
+      opacity: 1;
     }
 
     footer {
-      position: fixed;
-      bottom: 1rem;
-      width: 100%;
-      text-align: center;
-      font-size: 0.75rem;
-      letter-spacing: 0.25em;
-      color: #4b5563;
-      pointer-events: none;
+      margin-top: 4.5rem;
+      font-size: 0.9rem;
+      color: #6b7280;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 600px) {
+      .subtitle {
+        font-size: 1.1rem;
+      }
     }
   </style>
 </head>
 
 <body>
+  <h1>Yacine Tarzout</h1>
+  <p class="subtitle">BTS Services Informatiques aux Organisations – Option SISR</p>
 
-<div id="vanta-bg"></div>
-<div class="noise"></div>
-<div class="custom-cursor"></div>
-
-<section class="hero">
-  <div>
-    <h1 class="glitch">YACINE TARZOUT</h1>
-    <div class="subtitle">BTS SIO • SISR • 2026 • VALENCE</div>
+  <div class="buttons">
+    <a href="TP1/index.html" class="btn">TP 1</a>
+    <a href="TP2/index.html" class="btn">TP 2</a>
+    <a href="TP3/index.html" class="btn">TP 3</a>
+    <a href="TP4/index.html" class="btn">TP 4</a>
+    <a href="CV/index.html" class="btn">CV</a>
   </div>
 
-  <a href="#portals" class="scroll-arrow" aria-label="Descendre">
-    <span></span>
-  </a>
-</section>
-
-<section class="portal-grid" id="portals">
-  <div class="portal"><a href="TP1/index.html">TP 1</a></div>
-  <div class="portal"><a href="TP2/index.html">TP 2</a></div>
-  <div class="portal"><a href="TP3/index.html">TP 3</a></div>
-  <div class="portal"><a href="TP4/index.html">TP 4</a></div>
-  <div class="portal"><a href="CV/index.html">CURRICULUM</a></div>
-</section>
-
-<footer>BTS SIO SISR — VALENCE 2026</footer>
-
-<script>
-  VANTA.NET({
-    el: "#vanta-bg",
-    color: 0x7c3aed,
-    backgroundColor: 0x050507,
-    points: 8,
-    spacing: 16,
-    scaleMobile: 0.85
-  });
-
-  if (window.matchMedia("(pointer: fine)").matches) {
-    const cursor = document.querySelector('.custom-cursor');
-    document.addEventListener('mousemove', e => {
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top = e.clientY + 'px';
-    });
-  }
-
-  const arrow = document.querySelector('.scroll-arrow');
-  window.addEventListener('scroll', () => {
-    arrow.style.opacity = window.scrollY > 80 ? '0' : '1';
-    arrow.style.pointerEvents = window.scrollY > 80 ? 'none' : 'auto';
-  });
-</script>
-
+  <footer>
+    BTS SIO 2026 – Valence
+  </footer>
 </body>
 </html>
