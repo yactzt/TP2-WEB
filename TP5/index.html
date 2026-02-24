@@ -4,9 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TP 5 – BTS SIO SISR</title>
-  <!-- ===================== STYLES ===================== -->
   <style>
-    /* ===================== THEME GROK / ABYSS ===================== */
     :root {
       --bg-main: #050608;
       --bg-panel: #0b0d11;
@@ -15,7 +13,6 @@
       --text-muted: #9aa0aa;
       --accent: #2563eb;
     }
-    /* ===================== RESET / BASE ===================== */
     * { box-sizing: border-box; margin:0; padding:0; }
     body {
       min-height: 100vh;
@@ -28,13 +25,11 @@
       overflow: hidden;
       text-align: center;
     }
-    /* ===================== BACKGROUND PARTICLES ===================== */
     #particles {
       position: fixed;
       inset: 0;
       z-index: -1;
     }
-    /* ===================== PAGE CONTAINER ===================== */
     .page {
       width: 100%;
       max-width: 900px;
@@ -43,7 +38,6 @@
       flex-direction: column;
       align-items: center;
     }
-    /* ===================== HEADER ===================== */
     header {
       margin-bottom: 4rem;
     }
@@ -72,7 +66,6 @@
       color: var(--text-muted);
       line-height: 1.5;
     }
-    /* ===================== MAIN / BUTTONS ===================== */
     main {
       width: 100%;
       max-width: 700px;
@@ -102,7 +95,6 @@
       border-color: var(--accent);
       box-shadow: 0 12px 35px rgba(37, 99, 235, 0.15);
     }
-    /* ===================== FOOTER ===================== */
     footer {
       margin-top: 5rem;
       font-size: 0.8rem;
@@ -112,16 +104,12 @@
       text-transform: uppercase;
     }
   </style>
-  <!-- ===================== GOOGLE FONT ===================== -->
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- BACKGROUND PARTICLES -->
   <canvas id="particles"></canvas>
 
-  <!-- PAGE CONTAINER -->
   <div class="page">
-    <!-- HEADER -->
     <header>
       <h1 class="title">TP 5</h1>
       <p class="subtitle">
@@ -130,7 +118,6 @@
       </p>
     </header>
 
-    <!-- MAIN -->
     <main>
       <section class="buttons">
         <a href="exercice1.html" class="btn">Exercice 1</a>
@@ -139,13 +126,11 @@
       </section>
     </main>
 
-    <!-- FOOTER -->
     <footer>
       BTS SIO 2026 – Abandonne tout espoir
     </footer>
   </div>
 
-  <!-- ===================== PARTICLES SCRIPT ===================== -->
   <script>
     const canvas = document.getElementById("particles");
     const ctx = canvas.getContext("2d");
@@ -204,3 +189,4 @@
   </script>
 </body>
 </html>
+
