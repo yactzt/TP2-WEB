@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendrier Scolaire</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #4472C4;
+            color: white;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        tr:hover {
+            background-color: #f0f0f0;
+        }
+        
+        /* Couleurs pour les zones */
+        .zone-a {
+            background-color: #FFA500;
+            color: white;
+        }
+        
+        .zone-b {
+            background-color: #4472C4;
+            color: white;
+        }
+        
+        .zone-c {
+            background-color: #70AD47;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calendrier Scolaire 2017-2018</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Événement</th>
+                <th class="zone-a">Zone A</th>
+                <th class="zone-b">Zone B</th>
+                <th class="zone-c">Zone C</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Académies</strong></td>
+                <td>Aix-Marseille, Bordeaux, Clermont-Ferrand, Dijon, Grenoble, Limoges, Lyon, Nantes, Poitiers</td>
+                <td>Amiens, Lille, Amiens, Nantes, Nice, Orléans-Tours, Rouen, Strasbourg</td>
+                <td>Créteil, Montpellier, Paris, Toulouse, Versailles</td>
+            </tr>
+            <tr>
+                <td><strong>Prérectrice des enseignants</strong></td>
+                <td colspan="3">Reprise des cours : vendredi 1er septembre 2017</td>
+            </tr>
+            <tr>
+                <td><strong>Rentrée scolaire des élèves</strong></td>
+                <td colspan="3">Reprise des cours : lundi 4 septembre 2017</td>
+            </tr>
+            <tr>
+                <td><strong>Vacances de la Toussaint</strong></td>
+                <td colspan="3">Fin des cours : samedi 21 octobre 2017 | Reprise des cours : lundi 6 novembre 2017</td>
+            </tr>
+            <tr>
+                <td><strong>Vacances de Noël</strong></td>
+                <td colspan="3">Fin des cours : samedi 23 décembre 2017 | Reprise des cours : lundi 8 janvier 2018</td>
+            </tr>
+            <tr>
+                <td><strong>Vacances d'hiver</strong></td>
+                <td>Fin des cours : samedi 10 février 2018 | Reprise des cours : lundi 26 février 2018</td>
+                <td>Fin des cours : samedi 24 février 2018 | Reprise des cours : lundi 12 mars 2018</td>
+                <td>Fin des cours : samedi 17 février 2018 | Reprise des cours : lundi 5 mars 2018</td>
+            </tr>
+            <tr>
+                <td><strong>Vacances de printemps</strong></td>
+                <td>Fin des cours : samedi 7 avril 2018 | Reprise des cours : lundi 23 avril 2018</td>
+                <td>Fin des cours : samedi 21 avril 2018 | Reprise des cours : lundi 7 mai 2018</td>
+                <td>Fin des cours : samedi 14 avril 2018 | Reprise des cours : lundi 30 avril 2018</td>
+            </tr>
+            <tr>
+                <td><strong>Vacances d'été</strong></td>
+                <td colspan="3">Fin des cours : samedi 7 juillet 2018</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

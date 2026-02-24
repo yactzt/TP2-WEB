@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendrier Avril 2024</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+        }
+        
+        th {
+            background-color: #4472C4;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            border: 1px solid #ddd;
+        }
+        
+        td {
+            width: 14.28%;
+            height: 80px;
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+            vertical-align: top;
+            background-color: #f9f9f9;
+        }
+        
+        td:hover {
+            background-color: #f0f0f0;
+        }
+        
+        /* Colorer les jours du weekend */
+        .weekend {
+            background-color: #e8e8e8;
+            font-weight: bold;
+        }
+        
+        /* Colorer les jours du mois actuel */
+        .jour-actif {
+            color: #333;
+        }
+        
+        /* Colorer les jours d'autres mois */
+        .jour-inactif {
+            color: #ccc;
+        }
+        
+        /* Jour spécial (aujourd'hui par exemple) */
+        .jour-special {
+            background-color: #FFE699;
+            border: 2px solid #FFC000;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Avril 2024</h1>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Lu</th>
+                    <th>Ma</th>
+                    <th>Me</th>
+                    <th>Je</th>
+                    <th>Ve</th>
+                    <th class="weekend">Sa</th>
+                    <th class="weekend">Di</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Semaine 1 -->
+                <tr>
+                    <td class="jour-inactif">1</td>
+                    <td class="jour-inactif">2</td>
+                    <td class="jour-inactif">3</td>
+                    <td class="jour-inactif">4</td>
+                    <td class="jour-inactif">5</td>
+                    <td class="weekend jour-inactif">6</td>
+                    <td class="weekend jour-inactif">7</td>
+                </tr>
+                <!-- Semaine 2 -->
+                <tr>
+                    <td class="jour-actif">8</td>
+                    <td class="jour-actif">9</td>
+                    <td class="jour-actif">10</td>
+                    <td class="jour-actif">11</td>
+                    <td class="jour-actif">12</td>
+                    <td class="weekend jour-actif">13</td>
+                    <td class="weekend jour-actif">14</td>
+                </tr>
+                <!-- Semaine 3 -->
+                <tr>
+                    <td class="jour-actif">15</td>
+                    <td class="jour-actif">16</td>
+                    <td class="jour-actif">17</td>
+                    <td class="jour-actif">18</td>
+                    <td class="jour-actif">19</td>
+                    <td class="weekend jour-actif">20</td>
+                    <td class="weekend jour-actif">21</td>
+                </tr>
+                <!-- Semaine 4 -->
+                <tr>
+                    <td class="jour-actif">22</td>
+                    <td class="jour-actif">23</td>
+                    <td class="jour-actif">24</td>
+                    <td class="jour-actif">25</td>
+                    <td class="jour-actif">26</td>
+                    <td class="weekend jour-actif">27</td>
+                    <td class="weekend jour-actif">28</td>
+                </tr>
+                <!-- Semaine 5 -->
+                <tr>
+                    <td class="jour-actif">29</td>
+                    <td class="jour-actif">30</td>
+                    <td class="jour-inactif">1</td>
+                    <td class="jour-inactif">2</td>
+                    <td class="jour-inactif">3</td>
+                    <td class="weekend jour-inactif">4</td>
+                    <td class="weekend jour-inactif">5</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
