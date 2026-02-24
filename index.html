@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yacine Tarzout – BTS SIO SISR</title>
 
-  <!-- ===================== STYLES ===================== -->
   <style>
-    /* ===================== THEME GROK ===================== */
     :root {
       --bg-main: #050608;
       --bg-panel: #0b0d11;
@@ -17,7 +15,6 @@
       --accent: #2563eb;
     }
 
-    /* ===================== RESET / BASE ===================== */
     * { box-sizing: border-box; margin:0; padding:0; }
 
     body {
@@ -32,14 +29,12 @@
       text-align: center;
     }
 
-    /* ===================== BACKGROUND ===================== */
     #particles {
       position: fixed;
       inset: 0;
       z-index: -1;
     }
 
-    /* ===================== PAGE CONTAINER ===================== */
     .page {
       width: 100%;
       max-width: 1100px;
@@ -49,7 +44,6 @@
       align-items: center;
     }
 
-    /* ===================== HEADER ===================== */
     header {
       margin-bottom: 4rem;
     }
@@ -85,7 +79,6 @@
       line-height: 1.6;
     }
 
-    /* ===================== MAIN / BUTTONS ===================== */
     main {
       width: 100%;
       max-width: 900px;
@@ -119,7 +112,6 @@
       box-shadow: 0 10px 30px rgba(37, 99, 235, 0.12);
     }
 
-    /* ===================== FOOTER ===================== */
     footer {
       margin-top: 4.5rem;
       font-size: 0.75rem;
@@ -131,20 +123,16 @@
 
   </style>
 
-  <!-- ===================== GOOGLE FONT (OPTIONNEL) ===================== -->
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700;900&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
-  <!-- BACKGROUND PARTICLES -->
   <canvas id="particles"></canvas>
 
-  <!-- PAGE CONTAINER -->
   <div class="page">
 
-    <!-- HEADER -->
     <header>
       <h1 class="name">
         <span class="first">Yacine</span> <span class="last">Tarzout</span>
@@ -155,7 +143,6 @@
       </p>
     </header>
 
-    <!-- MAIN -->
     <main>
       <section class="buttons">
         <a href="TP1/index.html" class="btn">TP 1</a>
@@ -174,7 +161,6 @@
 
   </div>
 
-  <!-- ===================== PARTICLES SCRIPT ===================== -->
   <script>
     const canvas = document.getElementById("particles");
     const ctx = canvas.getContext("2d");
