@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cours JavaScript - Les Bases</title>
+    <link rel="stylesheet" href="../Style/style.css">
+</head>
+<body>
+    <header>
+        <h1>LANGAGE JAVASCRIPT : LES BASES</h1>
+    </header>
+
+    <nav>
+        <a href="../index.html">← Accueil</a> | 
+        <a href="js.html">← Retour à JavaScript</a>
+    </nav>
+
+    <main>
+        <section class="sommaire-interne" id="sommaire">
+            <h2>Sommaire du cours</h2>
+            <ul>
+                <li><a href="#structure">1. La structure de base d'un programme</a></li>
+                <li><a href="#commentaires">2. Les commentaires</a></li>
+                <li><a href="#declarations">3. Les déclarations et instructions</a></li>
+                <li><a href="#variables">4. Les variables</a></li>
+                <li><a href="#memoire">5. La mémoire vive</a></li>
+                <li><a href="#nomvariables">6. Choix du nom des variables</a></li>
+            </ul>
+        </section>
+
+        <article>
+            <h2 id="structure">1. LA STRUCTURE DE BASE D'UN PROGRAMME EN JAVASCRIPT</h2>
+            
+            <h3>Fichier JavaScript séparé</h3>
+            <p>Lorsque le code JavaScript se trouve dans un fichier séparé (extension <code>.js</code>), la structure générale d'un programme écrit en JavaScript est relativement simple :</p>
+            
+            <pre><code>/* zone d'en-tête */
+
+/* déclaration des variables globales */
+Declaration1;
+Declaration2;
+
+/* définition des fonctions (mot clef function) */
+
+/* CORPS DU PROGRAMME */
+Instruction1;
+Instruction2;
+
+/* FIN */</code></pre>
+
+            <p>Même s'il est possible de déclarer nos variables à n'importe quel moment, il est conseillé de le faire en début de script pour une meilleure lisibilité du code.</p>
+
+            <h3>JavaScript dans une page Web</h3>
+            <p>Lorsque le JavaScript est écrit dans une page Web, la structure est différente. Voici la structure générale :</p>
+            
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Titre de la page&lt;/title&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+
+        &lt;script&gt;
+            //ici les variables globales à la page et les fonctions
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;script&gt;
+            //ici les instructions    
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <p>Le langage HTML utilise des balises. La balise permettant d'ajouter du JavaScript est <code>&lt;script&gt; … &lt;/script&gt;</code>. Cette balise s'ajoute à 2 endroits particulièrement :</p>
+            <ul>
+                <li>Entre les balises <code>&lt;head&gt;&lt;/head&gt;</code> pour les variables globales et les fonctions</li>
+                <li>Entre <code>&lt;body&gt;&lt;/body&gt;</code> pour les instructions</li>
+            </ul>
+
+            <a href="#sommaire" class="back-to-top">↑ Retour au sommaire</a>
+
+            <h2 id="commentaires">2. LES COMMENTAIRES</h2>
+            
+            <p>Les commentaires permettent une relecture de programme pour le programmeur lui-même mais aussi pour ceux qui vont relire le programme (travail en équipe). Un commentaire d'en-tête est nécessaire pour indiquer le nom du programmeur, la date, le nom du fichier et la description du programme.</p>
+            
+            <p>Les commentaires sont du texte simple et ne sont donc pas traités comme étant du code. Ils ne seront donc pas interprétés.</p>
+
+            <p>Deux types de commentaires sont possibles :</p>
+            <ul>
+                <li><code>//</code> indiquent au compilateur que le reste de la ligne est un commentaire.</li>
+                <li><code>/* … */</code> indiquent au compilateur qu'à partir de <code>/*</code> le texte est un commentaire jusqu'au symbole <code>*/</code>. Permet des commentaires sur plusieurs lignes.</li>
+            </ul>
+
+            <pre><code>/* 
+ * File:   HelloWorld.js
+ * Author: sgibert
+ *
+ * Created on 14 septembre 2018, 20:19
+ * 
+ * Description du programme : explique ici ce que fait ton programme 
+ */</code></pre>
+
+            <p>Il n'est pas utile d'associer une ligne de code avec un commentaire d'autant plus si ce dernier ne fait que dire ce que fait le code.</p>
+
+            <p><strong>Exemple :</strong></p>
+            <pre><code>// je déclare une variable x=3  : ce commentaire n'a aucun intérêt
+// il vaut mieux expliquer à quoi sert la variable x dans notre code.
+var x=3;</code></pre>
+
+            <a href="#sommaire" class="back-to-top">↑ Retour au sommaire</a>
+
+            <h2 id="declarations">3. LES DÉCLARATIONS ET INSTRUCTIONS</h2>
+            
+            <p>Une instruction ou une déclaration se termine toujours par un point-virgule (<code>;</code>). C'est le cas de nombreux langages de programmation. Mais attention, le langage JavaScript n'est pas aussi strict au niveau de sa syntaxe et certaines instructions autorisent l'absence de <code>;</code> de fin.</p>
+
+            <p>Pour faire simple, cela ne coûte rien d'ajouter systématiquement ce marqueur de fin d'instruction et sera donc la règle pour nous.</p>
+
+            <a href="#sommaire" class="back-to-top">↑ Retour au sommaire</a>
+
+            <h2 id="variables">4. LES DÉCLARATIONS DE VARIABLES</h2>
+            
+            <h3>Rappel du cours d'algorithmique</h3>
+            <p><strong>En résumé : variable = NOM + TYPE + VALEUR</strong></p>
+
+            <h3>Typage faible en JavaScript</h3>
+            <p>JavaScript est dit "faiblement typé" contrairement à d'autres langages dits "fortement typés" comme par exemple le langage C. Avec ces langages il est nécessaire de préciser le type au moment de la déclaration d'une variable.</p>
+
+            <p><strong>Exemple de déclaration de variable en C :</strong></p>
+            <pre><code>int a=3;     //a est un entier et restera un entier pendant tous le programme 
+float b=3.5; //b est un réel et restera un réel pendant tous le programme
+char c='a';  //c est un caractère et restera un caractère pendant tous le programme</code></pre>
+
+            <h3>Déclaration en JavaScript</h3>
+            <p>Avec JavaScript, une variable est déclarée avec la commande <code>var</code> ou <code>let</code>, mais sans indiquer son type. Le type sera fixé à l'utilisation. La notion de type est bien existante mais jamais indiquée de façon explicite dans le code.</p>
+
+            <p>Le JavaScript a 8 types : <code>Number</code>, <code>String</code>, <code>Boolean</code>, <code>Null</code>, <code>Undefined</code>, <code>BigInt</code>, <code>Object</code>, et <code>Symbole</code>.</p>
+
+            <p>Cela donne en Javascript :</p>
+            <pre><code>var a=3;      // a est un Number
+a="coucou";   // a est maintenant un String</code></pre>
+
+            <p>Dans ce programme, la variable <code>a</code> est déclarée comme étant un "Number". Mais au cours du programme, elle devient un "String". Bien que cela soit possible, on essayera au maximum d'éviter ce genre de mélange.</p>
+
+            <a href="#sommaire" class="back-to-top">↑ Retour au sommaire</a>
+
+            <h2 id="memoire">5. LA MÉMOIRE VIVE</h2>
+            
+            <p>Sur un PC, la mémoire vive est une mémoire de travail. Elle stocke de façon temporaire des données et des programmes. Lorsque le PC est éteint, le contenu de cette mémoire est supprimé. On parle alors de mémoire volatile, contrairement au disque dur d'un ordinateur qui stocke lui aussi des données mais de façon permanente. Cette mémoire est très rapide et communique directement avec le processeur.</p>
+
+            <p>En JavaScript, la mémoire est allouée lors de la création des objets puis libérée « automatiquement » lorsque ceux-ci ne sont plus utilisés. Cette libération automatique est appelée <strong>garbage collection</strong> en anglais ou <strong>ramasse-miettes</strong>.</p>
+
+            <a href="#sommaire" class="back-to-top">↑ Retour au sommaire</a>
+
+            <h2 id="nomvariables">6. CHOIX DU NOM DES VARIABLES</h2>
+            
+            <p>Bien qu'il soit possible de donner des noms de variables avec des caractères accentués en JavaScript, on se limitera aux caractères suivants :</p>
+            <ul>
+                <li><code>a..z, A..Z</code></li>
+                <li><code>0..9</code> (interdit au début du nom)</li>
+                <li><code>_</code> (le caractère souligné ou underscore) - autorisé au début du nom</li>
+            </ul>
+
+            <p>On ne peut pas utiliser :</p>
+            <ul>
+                <li>Un tiret <code>-</code> ou un point <code>.</code></li>
+                <li>Un mot clef du langage comme nom de variable. Exemples : <code>new</code>, <code>if</code>, <code>typeof</code>, etc.</li>
+            </ul>
+
+            <p>On utilise l'alternance de minuscule, majuscule, ou <code>_</code> (underscore) pour améliorer la lecture du nom.</p>
+
+            <p><strong>Exemples :</strong> <code>nbrDeCaisses</code>, <code>poste_1</code>, <code>poste_123</code>, etc.</p>
+
+            <p>Le langage JavaScript est sensible à la casse. Ainsi une variable <code>"Poste_1"</code> n'est pas la même chose que <code>"poste_1"</code>.</p>
+
+            <a href="#sommaire" class="back-to-top">↑ Retour au sommaire</a>
+        </article>
+
+        <section class="ressources">
+            <h3>Ressources et Contact</h3>
+            <a href="Cours3_Les bases_JS.pdf" download>📥 Télécharger le cours (PDF)</a>
+            <a href="mailto:auteur@lycee.fr?subject=Cours%20JavaScript%20-%20Les%20Bases">📧 Envoyer un mail à l'auteur</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Lycée Algoud-Laffemas - BTS SIO</p>
+    </footer>
+</body>
+</html>

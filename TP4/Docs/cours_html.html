@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cours HTML - Les Bases</title>
+    <link rel="stylesheet" href="../Style/style.css">
+</head>
+<body>
+    <header>
+        <h1>LANGAGE HTML : LES BASES</h1>
+    </header>
+
+    <nav>
+        <a href="../index.html">← Accueil</a> | 
+        <a href="html.html">← Retour à HTML</a>
+    </nav>
+
+    <main>
+        <section class="sommaire-interne" id="sommaire">
+            <h2>Sommaire du cours</h2>
+            <ul>
+                <li><a href="#intro">1. Introduction au HTML</a></li>
+                <li><a href="#structure">2. Structure d'une page HTML</a></li>
+                <li><a href="#balises">3. Les balises principales</a></li>
+            </ul>
+        </section>
+
+        <article>
+            <h2 id="intro">1. INTRODUCTION AU HTML</h2>
+            
+            <p>HTML signifie <strong>HyperText Markup Language</strong>. C'est le langage de balisage utilisé pour créer des pages web. HTML fournit la structure et le contenu d'une page web.</p>
+
+            <p>Contrairement à un langage de programmation, HTML n'est pas un langage de programmation à proprement parler, mais un langage de balisage qui utilise des balises pour structurer le contenu.</p>
+
+            <a href="#sommaire" class="back-to-top">↑ Retour au sommaire</a>
+
+            <h2 id="structure">2. STRUCTURE D'UNE PAGE HTML</h2>
+            
+            <p>Toute page HTML doit respecter une structure de base :</p>
+
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+        &lt;title&gt;Titre de la page&lt;/title&gt;
+        &lt;link rel="stylesheet" href="style.css"&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!-- Contenu de la page --&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <p>Chaque élément a un rôle spécifique :</p>
+            <ul>
+                <li><code>&lt;!DOCTYPE html&gt;</code> : déclare le type de document</li>
+                <li><code>&lt;html&gt;</code> : élément racine</li>
+                <li><code>&lt;head&gt;</code> : contient les métadonnées</li>
+                <li><code>&lt;body&gt;</code> : contient le contenu visible</li>
+            </ul>
+
+            <a href="#sommaire" class="back-to-top">↑ Retour au sommaire</a>
+
+            <h2 id="balises">3. LES BALISES PRINCIPALES</h2>
+            
+            <p>Voici les balises les plus couramment utilisées en HTML :</p>
+
+            <h3>Titres</h3>
+            <pre><code>&lt;h1&gt;Titre principal&lt;/h1&gt;
+&lt;h2&gt;Titre secondaire&lt;/h2&gt;
+&lt;h3&gt;Titre tertiaire&lt;/h3&gt;</code></pre>
+
+            <h3>Paragraphes et texte</h3>
+            <pre><code>&lt;p&gt;Ceci est un paragraphe&lt;/p&gt;
+&lt;strong&gt;Texte en gras&lt;/strong&gt;
+&lt;em&gt;Texte en italique&lt;/em&gt;</code></pre>
+
+            <h3>Listes</h3>
+            <pre><code>&lt;ul&gt;
+    &lt;li&gt;Élément 1&lt;/li&gt;
+    &lt;li&gt;Élément 2&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+            <h3>Liens et images</h3>
+            <pre><code>&lt;a href="https://exemple.com"&gt;Lien&lt;/a&gt;
+&lt;img src="image.png" alt="Description"&gt;</code></pre>
+
+            <a href="#sommaire" class="back-to-top">↑ Retour au sommaire</a>
+        </article>
+
+        <section class="ressources">
+            <h3>Ressources et Contact</h3>
+            <a href="mailto:auteur@lycee.fr?subject=Cours%20HTML%20-%20Les%20Bases">📧 Envoyer un mail à l'auteur</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Lycée Algoud-Laffemas - BTS SIO</p>
+    </footer>
+</body>
+</html>

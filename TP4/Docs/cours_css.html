@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cours CSS - Les Bases</title>
+    <link rel="stylesheet" href="../Style/style.css">
+</head>
+<body>
+    <header>
+        <h1>LANGAGE CSS : LES BASES</h1>
+    </header>
+
+    <nav>
+        <a href="../index.html">← Accueil</a> | 
+        <a href="css.html">← Retour à CSS</a>
+    </nav>
+
+    <main>
+        <section class="sommaire-interne" id="sommaire">
+            <h2>Sommaire du cours</h2>
+            <ul>
+                <li><a href="#intro">1. Introduction au CSS</a></li>
+                <li><a href="#syntaxe">2. Syntaxe CSS</a></li>
+                <li><a href="#selecteurs">3. Les sélecteurs</a></li>
+                <li><a href="#proprietes">4. Propriétés courantes</a></li>
+            </ul>
+        </section>
+
+        <article>
+            <h2 id="intro">1. INTRODUCTION AU CSS</h2>
+            
+            <p>CSS signifie <strong>Cascading Style Sheets</strong> (Feuilles de style en cascade). CSS est utilisé pour mettre en forme et présenter les éléments HTML d'une page web.</p>
+
+            <p>Tandis que HTML fournit la structure, CSS fournit le style et la mise en page.</p>
+
+            <a href="#sommaire" class="back-to-top">↑ Retour au sommaire</a>
+
+            <h2 id="syntaxe">2. SYNTAXE CSS</h2>
+            
+            <p>La syntaxe CSS est basée sur des règles composées d'un sélecteur et d'une déclaration :</p>
+
+            <pre><code>selecteur {
+    propriete: valeur;
+    propriete2: valeur2;
+}</code></pre>
+
+            <p><strong>Exemple :</strong></p>
+            <pre><code>h1 {
+    color: blue;
+    font-size: 2rem;
+}</code></pre>
+
+            <a href="#sommaire" class="back-to-top">↑ Retour au sommaire</a>
+
+            <h2 id="selecteurs">3. LES SÉLECTEURS</h2>
+            
+            <p>Les sélecteurs CSS permettent de cibler les éléments HTML à mettre en forme :</p>
+
+            <h3>Sélecteur d'élément</h3>
+            <pre><code>p {
+    color: black;
+}</code></pre>
+
+            <h3>Sélecteur de classe</h3>
+            <pre><code>.ma-classe {
+    background-color: yellow;
+}</code></pre>
+
+            <h3>Sélecteur d'ID</h3>
+            <pre><code>#mon-id {
+    font-weight: bold;
+}</code></pre>
+
+            <h3>Sélecteur universel</h3>
+            <pre><code>* {
+    margin: 0;
+    padding: 0;
+}</code></pre>
+
+            <a href="#sommaire" class="back-to-top">↑ Retour au sommaire</a>
+
+            <h2 id="proprietes">4. PROPRIÉTÉS COURANTES</h2>
+            
+            <p>Voici les propriétés CSS les plus utilisées :</p>
+
+            <h3>Couleurs et fond</h3>
+            <ul>
+                <li><code>color</code> : couleur du texte</li>
+                <li><code>background-color</code> : couleur de fond</li>
+                <li><code>background-image</code> : image de fond</li>
+            </ul>
+
+            <h3>Texte</h3>
+            <ul>
+                <li><code>font-size</code> : taille du texte</li>
+                <li><code>font-weight</code> : épaisseur du texte</li>
+                <li><code>text-align</code> : alignement du texte</li>
+            </ul>
+
+            <h3>Boîte (Box Model)</h3>
+            <ul>
+                <li><code>margin</code> : marge externe</li>
+                <li><code>padding</code> : marge interne</li>
+                <li><code>border</code> : bordure</li>
+                <li><code>width</code> : largeur</li>
+                <li><code>height</code> : hauteur</li>
+            </ul>
+
+            <a href="#sommaire" class="back-to-top">↑ Retour au sommaire</a>
+        </article>
+
+        <section class="ressources">
+            <h3>Ressources et Contact</h3>
+            <a href="mailto:auteur@lycee.fr?subject=Cours%20CSS%20-%20Les%20Bases">📧 Envoyer un mail à l'auteur</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Lycée Algoud-Laffemas - BTS SIO</p>
+    </footer>
+</body>
+</html>
