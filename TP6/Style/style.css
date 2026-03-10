@@ -1,0 +1,80 @@
+/* Étape 3: Configuration globale (selon énoncé) */
+html, body {
+    width: 100%;
+    height: 100%;
+    min-width: 600px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+    box-sizing: border-box;
+}
+
+/* Étape 3: Grille de 5 images par ligne et 4 lignes */
+.memory-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 10px;
+    width: 90%;
+    max-width: 800px;
+    height: 90%;
+    max-height: 600px;
+    padding: 10px;
+}
+
+/* Cacher les checkboxes */
+input[type="checkbox"] {
+    display: none;
+}
+
+/* Étape 4: Balise parente (carte) avec couleur de fond pour cacher */
+.card {
+    background-color: #2c3e50;
+    border: solid 1px black;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Label qui remplit la carte et gère le clic */
+.card label {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Étape 2: Bordure sur les images et ajustement parfait */
+.card img {
+    border: solid 1px black; /* Consigne Étape 2 */
+    width: 80%; /* Ajustement pour laisser un peu d'espace dans la carte */
+    height: 80%;
+    object-fit: contain; /* Garde les proportions sans déformer */
+    opacity: 0; /* Image transparente par défaut (Étape 4) */
+    transition: opacity 0.3s ease;
+    background-color: white; /* Fond blanc pour que l'image ressorte bien une fois révélée */
+}
+
+/* Afficher l'image quand la checkbox est cochée */
+input[type="checkbox"]:checked + label img {
+    opacity: 1;
+}
+
+/* Couleur différente au survol (Étape 4) */
+.card label:hover {
+    background-color: #34495e;
+}
+
+/* Couleur de fond quand la carte est retournée (checkbox cochée) */
+input[type="checkbox"]:checked + label {
+    background-color: #ecf0f1;
+}
