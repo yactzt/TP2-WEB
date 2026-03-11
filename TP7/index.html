@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP5 Zoning - Index des Modèles</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .models-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .model-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .model-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .model-preview {
+            height: 200px;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #666;
+            font-size: 0.9em;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Previews pour chaque modèle */
+        .preview-1 {
+            background: linear-gradient(to right, #3498db 0%, #3498db 25%, #2ecc71 25%, #2ecc71 100%);
+        }
+
+        .preview-2 {
+            background: linear-gradient(to right, #3498db 0%, #3498db 15%, #2ecc71 15%, #2ecc71 85%, #e74c3c 85%, #e74c3c 100%);
+        }
+
+        .preview-3 {
+            background: linear-gradient(to bottom, 
+                #1abc9c 0%, #1abc9c 45%,
+                #9b59b6 45%, #9b59b6 100%);
+        }
+
+        .preview-4 {
+            background: linear-gradient(to bottom,
+                #e74c3c 0%, #e74c3c 15%,
+                #3498db 15%, #3498db 20%,
+                #2ecc71 20%, #2ecc71 85%,
+                #f39c12 85%, #f39c12 100%);
+        }
+
+        .preview-5 {
+            background: linear-gradient(to bottom,
+                #e74c3c 0%, #e74c3c 15%,
+                #3498db 15%, #3498db 20%,
+                #2ecc71 20%, #2ecc71 85%,
+                #f39c12 85%, #f39c12 100%);
+        }
+
+        .preview-6 {
+            background: linear-gradient(to bottom,
+                #e74c3c 0%, #e74c3c 15%,
+                #3498db 15%, #3498db 20%,
+                #2ecc71 20%, #2ecc71 85%,
+                #f39c12 85%, #f39c12 100%);
+        }
+
+        .preview-7 {
+            background: linear-gradient(to bottom,
+                #e74c3c 0%, #e74c3c 15%,
+                #3498db 15%, #3498db 20%,
+                #2ecc71 20%, #2ecc71 85%,
+                #f39c12 85%, #f39c12 100%);
+        }
+
+        .model-info {
+            padding: 20px;
+        }
+
+        .model-title {
+            font-size: 1.3em;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .model-description {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .model-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.3s ease;
+            width: 100%;
+            text-align: center;
+        }
+
+        .model-link:hover {
+            opacity: 0.9;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        .back-link {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 30px;
+            transition: background 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .models-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>TP5 - Zoning d'une Page Web</h1>
+            <p>Sélectionnez un modèle pour visualiser sa structure</p>
+        </header>
+
+        <div class="models-grid">
+            <!-- Modèle 1 -->
+            <div class="model-card">
+                <div class="model-preview preview-1">
+                    Header + (Sidebar | Main)
+                </div>
+                <div class="model-info">
+                    <div class="model-title">Modèle 1</div>
+                    <div class="model-description">
+                        Structure simple avec une en-tête, une barre latérale gauche et un contenu principal.
+                    </div>
+                    <a href="model1.html" class="model-link">Voir le modèle</a>
+                </div>
+            </div>
+
+            <!-- Modèle 2 -->
+            <div class="model-card">
+                <div class="model-preview preview-2">
+                    Header + (Sidebar | Main | Sidebar)
+                </div>
+                <div class="model-info">
+                    <div class="model-title">Modèle 2</div>
+                    <div class="model-description">
+                        Extension du modèle 1 avec une barre latérale droite supplémentaire.
+                    </div>
+                    <a href="model2.html" class="model-link">Voir le modèle</a>
+                </div>
+            </div>
+
+            <!-- Modèle 3 -->
+            <div class="model-card">
+                <div class="model-preview preview-3">
+                    (Sidebar | Sidebar) + Footer
+                </div>
+                <div class="model-info">
+                    <div class="model-title">Modèle 3</div>
+                    <div class="model-description">
+                        Deux barres latérales côte à côte avec un pied de page en bas.
+                    </div>
+                    <a href="model3.html" class="model-link">Voir le modèle</a>
+                </div>
+            </div>
+
+            <!-- Modèle 4 -->
+            <div class="model-card">
+                <div class="model-preview preview-4">
+                    Header + Menu + Main + Footer
+                </div>
+                <div class="model-info">
+                    <div class="model-title">Modèle 4</div>
+                    <div class="model-description">
+                        Structure verticale classique avec en-tête, menu, contenu et pied de page.
+                    </div>
+                    <a href="model4.html" class="model-link">Voir le modèle</a>
+                </div>
+            </div>
+
+            <!-- Modèle 5 -->
+            <div class="model-card">
+                <div class="model-preview preview-5">
+                    Header + Menu + Grille 2x2 + Footer
+                </div>
+                <div class="model-info">
+                    <div class="model-title">Modèle 5</div>
+                    <div class="model-description">
+                        Structure avec une grille de 4 blocs organisés en 2 lignes et 2 colonnes.
+                    </div>
+                    <a href="model5.html" class="model-link">Voir le modèle</a>
+                </div>
+            </div>
+
+            <!-- Modèle 6 -->
+            <div class="model-card">
+                <div class="model-preview preview-6">
+                    Header + Menu + Grille 4x4 + Footer
+                </div>
+                <div class="model-info">
+                    <div class="model-title">Modèle 6</div>
+                    <div class="model-description">
+                        Structure avec une grille de 16 blocs organisés en 4 lignes et 4 colonnes.
+                    </div>
+                    <a href="model6.html" class="model-link">Voir le modèle</a>
+                </div>
+            </div>
+
+            <!-- Modèle 7 -->
+            <div class="model-card">
+                <div class="model-preview preview-7">
+                    Header + (Sidebar | 5 Col | Sidebar) + Footer
+                </div>
+                <div class="model-info">
+                    <div class="model-title">Modèle 7</div>
+                    <div class="model-description">
+                        Structure complexe avec deux barres latérales et 5 colonnes centrales, pied de page jaune.
+                    </div>
+                    <a href="model7.html" class="model-link">Voir le modèle</a>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>TP5 - Zoning d'une Page Web | BTS SIO Module B1.WEB</p>
+        </footer>
+    </div>
+</body>
+</html>

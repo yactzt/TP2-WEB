@@ -1,0 +1,145 @@
+/* General styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 100vh;
+}
+
+.header, .footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.sidebar-left, .sidebar-right {
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #e0e0e0;
+}
+
+.menu {
+    background-color: #666;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+.box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    background-color: #d0d0d0;
+    margin: 5px;
+}
+
+/* Specific styles for each exercise */
+
+/* Exercice 2 - Modèle 1: Header + (Sidebar Gauche | Main) */
+.model1 .container {
+    flex-direction: row;
+}
+.model1 .sidebar-left {
+    width: 20%;
+}
+.model1 .main-content {
+    width: 80%;
+}
+
+/* Exercice 2 - Modèle 2: Header + (Sidebar Gauche | Main | Sidebar Droite) */
+.model2 .container {
+    flex-direction: row;
+}
+.model2 .sidebar-left,
+.model2 .sidebar-right {
+    width: 15%;
+}
+.model2 .main-content {
+    width: 70%;
+}
+
+/* Exercice 2 - Modèle 3: (Sidebar Gauche | Sidebar Droite) + Footer */
+.model3 .container {
+    flex-direction: row;
+    align-items: stretch;
+}
+.model3 .sidebar-left,
+.model3 .sidebar-right {
+    flex: 1;
+}
+.model3 .footer {
+    order: 1; /* Place footer at the bottom */
+}
+
+/* Exercice 2 - Modèle 4: Header + Menu + Main + Footer */
+.model4 .container {
+    flex-direction: column;
+}
+.model4 .main-content {
+    flex-grow: 1;
+}
+
+/* Exercice 2 - Modèle 5: Header + Menu + (4 blocs en grille 2x2) + Footer */
+.model5 .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+    padding: 20px;
+    flex-grow: 1;
+}
+.model5 .box {
+    background-color: lightblue;
+}
+
+/* Exercice 2 - Modèle 6: Header + Menu + (4x4 grille de blocs colorés) + Footer */
+.model6 .grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 5px;
+    padding: 10px;
+    flex-grow: 1;
+}
+.model6 .box {
+    background-color: lightgreen;
+    height: 50px;
+}
+
+/* Exercice 2 - Modèle 7: Header + (Sidebar Gauche | 5 colonnes centrales | Sidebar Droite) + Footer (jaune) */
+.model7 .content-area {
+    display: flex;
+    flex-grow: 1;
+}
+.model7 .sidebar-left,
+.model7 .sidebar-right {
+    width: 15%;
+}
+.model7 .central-columns {
+    display: flex;
+    flex-grow: 1;
+}
+.model7 .central-column-item {
+    flex: 1;
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    background-color: #f0f0f0;
+    margin: 5px;
+}
+.model7 .footer {
+    background-color: yellow;
+    color: black;
+}
