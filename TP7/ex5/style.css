@@ -1,0 +1,12 @@
+
+body{margin:0}
+.top{background:#ff5c5c;height:80px;text-align:center;line-height:80px}
+
+.container{display:flex;height:400px}
+.left{background:#4f79d8;width:20%}
+.right{background:#4f79d8;width:20%}
+
+.center{display:flex;width:60%}
+.z{flex:1;background:#55c878;border:1px solid white}
+
+.bottom{background:#f1c40f;height:80px;text-align:center;line-height:80px}
