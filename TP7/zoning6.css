@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-size: 12px;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#zone-haut {
+  background-color: #3498db;
+  color: white;
+  padding: 4px 8px;
+  height: 10%;
+  text-align: center;
+}
+
+#menu {
+  background-color: #1abc9c;
+  color: white;
+  padding: 4px 8px;
+  height: 7%;
+  text-align: center;
+}
+
+#grille {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  flex: 1;
+  gap: 2px;
+  padding: 2px;
+  background-color: #ecf0f1;
+}
+
+.pz {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+/* Alternance de couleurs par ligne */
+#pz1, #pz2, #pz3, #pz4 { background-color: #e74c3c; }
+#pz5, #pz6, #pz7, #pz8 { background-color: #e67e22; }
+#pz9, #pz10, #pz11, #pz12 { background-color: #2ecc71; }
+#pz13, #pz14, #pz15, #pz16 { background-color: #9b59b6; }
+
+#zone-bas {
+  background-color: #bdc3c7;
+  color: #333;
+  padding: 4px 8px;
+  height: 7%;
+  text-align: center;
+}

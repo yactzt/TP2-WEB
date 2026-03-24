@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-size: 12px;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#conteneur {
+  display: flex;
+  flex: 1;
+}
+
+#gauche {
+  background-color: #3498db;
+  color: white;
+  padding: 4px 6px;
+  width: 50%;
+}
+
+#droite {
+  background-color: #9b59b6;
+  color: white;
+  padding: 4px 6px;
+  flex: 1;
+}
+
+#bas {
+  background-color: #f1c40f;
+  color: #333;
+  padding: 4px 6px;
+  height: 10%;
+}
